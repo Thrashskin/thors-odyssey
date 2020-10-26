@@ -7,7 +7,7 @@ window.onload = () => {
             ctx.drawImage(backGroundImg, 0, 0, canvas.width, canvas.height);
         };
 
-    backGroundImg.src = './images/sky.jpg';
+    backGroundImg.src = 'https://github.com/Thrashskin/thors-odyssey/blob/gh-pages/images/sky.jpg';
 
     document.getElementById('start-button').addEventListener('click', () => {
         startGame();
