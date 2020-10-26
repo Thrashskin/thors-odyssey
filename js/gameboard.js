@@ -26,7 +26,7 @@ class Gameboard {
         this.ctx = canvas.getContext('2d');
         this.warriorHealthBar = document.getElementById('health-warrior');
         this.enemyHealthBar = document.getElementById('health-enemy');
-        this.warrior = new Warrior(this, 300, 525, 50, 75, 'images/thor.png', 5000, 15);
+        this.warrior = new Warrior(this, 300, 525, 50, 75, './images/thor.png', 5000, 15);
         this.enemy = new Enemy(this, 0, 10, 100, 125, 'images/cthulhu.png', 7000, 5);
         this.x = 0;
         this.y = 0;
@@ -67,21 +67,21 @@ class Gameboard {
 
                 if (throwable.hasCollided(this.warrior, false)) {
                     this.warrior.health -= throwable.damage;
-                    this.drawExplosion(throwable, this.warrior.y, '/images/explosion_2.png');
+                    this.drawExplosion(throwable, this.warrior.y, 'images/explosion_2.png');
                     this.enemy.attacks.splice(i, 1);
                     this.warriorHealthBar.value = this.warrior.health;
                     console.log(this.warrior.health);
                 }
 
                 if (throwable.y > 800) {
-                    this.drawExplosion(throwable, 750, '/images/explosion_2.png');
+                    this.drawExplosion(throwable, 750, 'images/explosion_2.png');
                     this.enemy.attacks.splice(i, 1);
                 }
 
 
 
                 if(this.warrior.health <= 0) {
-                    this.drawDeath(this.warrior.x-20, this.warrior.y, this.warrior.width, this.warrior.height,'/images/tombstone.png');
+                    this.drawDeath(this.warrior.x-20, this.warrior.y, this.warrior.width, this.warrior.height,'images/tombstone.png');
                     clearInterval(this.interval);
                 }
 
@@ -107,7 +107,7 @@ class Gameboard {
                     this.warrior.attacks.splice(i, 1);
                     console.log(this.enemy.health);
                     this.enemyHealthBar.value = this.enemy.health;
-                    this.drawExplosion(throwable, throwable.y, '/images/explosion_2.png');
+                    this.drawExplosion(throwable, throwable.y, 'images/explosion_2.png');
                 }
                 
                 if (throwable.y < 0) {
@@ -115,7 +115,7 @@ class Gameboard {
                 }
 
                 if(this.enemy.health <= 0) {
-                    this.drawDeath(this.enemy.x-100, this.enemy.y - 160 ,this.enemy.width*2+40, this.enemy.height*2+20, '/images/ghost.png');
+                    this.drawDeath(this.enemy.x-100, this.enemy.y - 160 ,this.enemy.width*2+40, this.enemy.height*2+20, 'images/ghost.png');
                     clearInterval(this.interval);
                 }
 
