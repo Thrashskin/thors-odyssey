@@ -140,7 +140,7 @@ class Gameboard {
                 this.height
                 );
         };
-        this.backgroundImg.src = '/images/sky.jpg';
+        this.backgroundImg.src = './images/sky.jpg';
     }
 
     drawWarrior(x, y, width, height) {
