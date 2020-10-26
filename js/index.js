@@ -1,4 +1,4 @@
-window.onload = function() {
+window.onload = () => {
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
     let backGroundImg = new Image();
