@@ -9,7 +9,7 @@ class Enemy extends Character {
         // here we will define the frequency for the attacks
         //
         if ((Math.floor(Math.random() * 1000) % 15 === 0)) {
-            this.attacks.push(new Throwable((this.x + this.width/2), (this.y + this.height/2), 35, 35, 'https://github.com/Thrashskin/thors-odyssey/blob/gh-pages/images/eye.png', 20, 20));
+            this.attacks.push(new Throwable((this.x + this.width/2), (this.y + this.height/2), 35, 35, 'images/eye.png', 20, 20));
         }
 
         setTimeout( () => {
