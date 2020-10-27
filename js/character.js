@@ -14,16 +14,4 @@ class Character {
         this.pace = pace;
     }
 
-    // drawCharacter() {
-    //     // this.characterImg.onload = () => {
-    //     //     this.ctx.drawImage(
-    //     //         this.characterImg, 
-    //     //         this.x, 
-    //     //         this.y, 
-    //     //         this.width, 
-    //     //         this.height);
-    //     // };
-
-    //     // this.characterImg.src = this.src;
-    // }  
 }

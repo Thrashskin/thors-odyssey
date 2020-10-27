@@ -1,6 +1,5 @@
-//idea: enemy could receive an image to load a different enemy in upper levels
 class Enemy extends Character {
-    constructor(gameboard, x, y, width, height, src, life, pace) { //pass only the context and not the full gameboard
+    constructor(gameboard, x, y, width, height, src, life, pace) { 
         super(gameboard, x, y, width, height, src, life, pace) ;
     }
 

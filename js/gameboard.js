@@ -4,14 +4,9 @@ class Gameboard {
         this.canvas = undefined;
         this.ctx = undefined;
         this.backgroundImg = new Image();
-        //this.warriorImg = new Image();
-        //this.fireballImg = new Image();
         this.score = 0;
         this.warrior = undefined;
         this.enemy = undefined;
-        //this.enemy = new Enemy();
-        //this.enemies = [];
-        //TODO: are x and y really necessary here?
         this.x = undefined;
         this.y = undefined;
         this.width = undefined;
@@ -33,7 +28,6 @@ class Gameboard {
         this.width = canvas.width;
         this.height = canvas.height;
         this.start();
-        //this.createAttacks();warimgriorImg
     }
 
     start() {
@@ -49,12 +43,11 @@ class Gameboard {
             this.drawWarrior(this.warrior.x, this.warrior.y, this.warrior.width, this.warrior.height);
             this.drawEnemy(this.enemy.x, this.enemy.y, this.enemy.width, this.enemy.height);
             this.enemy.createAttacks();
-            //here goes a for loop to iterate throug all the fireballs in the game
             for (let i=0; i<this.enemy.attacks.length; i++) {
                 let throwable = this.enemy.attacks[i];
                 throwable.move(true);
-                //this.drawThrowable(throwable.x, throwable.y, throwable.width, throwable.height, throwable);
                 throwable.img.src = throwable.src;
+                this.playEnemyShoot();
                 this.ctx.drawImage(
                     throwable.img, 
                     throwable.x, 
@@ -62,15 +55,6 @@ class Gameboard {
                     throwable.width, 
                     throwable.height
                 );
-                // throwable.img.onload = () => {
-                //     this.ctx.drawImage(
-                //         throwable.img, 
-                //         throwable.x, 
-                //         throwable.y, 
-                //         throwable.width, 
-                //         throwable.height
-                //     );
-                // }
 
                 if (throwable.hasCollided(this.warrior, false)) {
                     this.warrior.health -= throwable.damage;
@@ -96,7 +80,6 @@ class Gameboard {
             for (let i=0; i<this.warrior.attacks.length; i++) {
                 let throwable = this.warrior.attacks[i];
                 throwable.move(false);
-                //this.drawThrowable(throwable.x, throwable.y, throwable.width, throwable.height, throwable);
                 throwable.img.src = throwable.src;
                 this.ctx.drawImage(
                     throwable.img, 
@@ -105,15 +88,6 @@ class Gameboard {
                     throwable.width, 
                     throwable.height
                 );
-                // throwable.img.onload = () => {
-                //     this.ctx.drawImage(
-                //         throwable.img, 
-                //         throwable.x, 
-                //         throwable.y, 
-                //         throwable.width, 
-                //         throwable.height
-                //     );
-                // }
 
                 if (throwable.hasCollided(this.enemy, true)) {
                     this.enemy.health -= throwable.damage;
@@ -143,15 +117,7 @@ class Gameboard {
     }
 
     drawBackground() {
-        // this.backgroundImg.onload = () => {
-        //     this.ctx.drawImage(
-        //         this.backgroundImg,
-        //         this.x,
-        //         this.y,
-        //         this.width,
-        //         this.height
-        //         );
-        // };
+
         this.backgroundImg.src = './images/sky.jpg';
         this.ctx.drawImage(
             this.backgroundImg,
@@ -164,14 +130,6 @@ class Gameboard {
 
     drawWarrior(x, y, width, height) {
     
-        // this.warrior.characterImg.onload = () => {
-        //     this.ctx.drawImage(
-        //         this.warrior.characterImg, 
-        //         x, 
-        //         y, 
-        //         width, 
-        //         height);
-        //     };
         this.warrior.characterImg.src = this.warrior.src;
         this.ctx.drawImage(
             this.warrior.characterImg, 
@@ -191,15 +149,6 @@ class Gameboard {
     }
 
     drawEnemy(x, y, width, height) {
-
-        // this.enemy.characterImg.onload = () => {
-        //     this.ctx.drawImage(
-        //         this.enemy.characterImg, 
-        //         x, 
-        //         y, 
-        //         width, 
-        //         height);
-        //     };
         this.enemy.characterImg.src = this.enemy.src;
         this.ctx.drawImage(
             this.enemy.characterImg, 
@@ -232,39 +181,34 @@ class Gameboard {
             y, 
             50, 
             50
-        );
-        // explosion.onload = () => {
-        //     this.ctx.drawImage(
-        //         explosion, 
-        //         attack.x, 
-        //         y, 
-        //         50, 
-        //         50
-        //     );
-        // };
-        
+        );        
     }
 
     drawDeath(x, y, width, height, src) {
         let img = new Image();
-        img.src = src;
-        this.ctx.drawImage(
-            img,
-            x,
-            y,
-            width,
-            height
-        );
-        
-        // img.onload = () => {
-        //     this.ctx.drawImage(
-        //         img,
-        //         x,
-        //         y,
-        //         width,
-        //         height
-        //     );
-        // };
-    } //valid for warrior and for enemy
+        img.src = src;  
+        img.onload = () => {
+            this.ctx.drawImage(
+                img,
+                x,
+                y,
+                width,
+                height
+            );
+        };
+    }
+
+    playWarriorShoot(){
+        let sound = new Audio('./sounds/shoot_thor.mp3');
+        sound.play();
+    }
+
+    playEnemyShoot(){
+
+    }
+
+    playExplosionSound(){
+
+    }
 
 }

@@ -16,6 +16,5 @@ window.onload = () => {
     function startGame() {
         let gameboard = new Gameboard();
         gameboard.init();
-        console.log(gameboard);
     }
 };
