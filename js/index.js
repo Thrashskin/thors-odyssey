@@ -14,7 +14,8 @@ window.onload = () => {
     });
 
     function startGame() {
-        const gameboard = new Gameboard();
+        let gameboard = new Gameboard();
         gameboard.init();
+        console.log(gameboard);
     }
 };

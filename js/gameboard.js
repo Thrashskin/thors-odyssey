@@ -55,15 +55,22 @@ class Gameboard {
                 throwable.move(true);
                 //this.drawThrowable(throwable.x, throwable.y, throwable.width, throwable.height, throwable);
                 throwable.img.src = throwable.src;
-                throwable.img.onload = () => {
-                    this.ctx.drawImage(
-                        throwable.img, 
-                        throwable.x, 
-                        throwable.y, 
-                        throwable.width, 
-                        throwable.height
-                    );
-                }
+                this.ctx.drawImage(
+                    throwable.img, 
+                    throwable.x, 
+                    throwable.y, 
+                    throwable.width, 
+                    throwable.height
+                );
+                // throwable.img.onload = () => {
+                //     this.ctx.drawImage(
+                //         throwable.img, 
+                //         throwable.x, 
+                //         throwable.y, 
+                //         throwable.width, 
+                //         throwable.height
+                //     );
+                // }
 
                 if (throwable.hasCollided(this.warrior, false)) {
                     this.warrior.health -= throwable.damage;
@@ -72,7 +79,7 @@ class Gameboard {
                     this.warriorHealthBar.value = this.warrior.health;
                 }
 
-                if (throwable.y > 600) {
+                if (throwable.y > 590) {
                     this.drawExplosion(throwable, 550, 'images/explosion_2.png');
                     this.enemy.attacks.splice(i, 1);
                 }
@@ -91,15 +98,22 @@ class Gameboard {
                 throwable.move(false);
                 //this.drawThrowable(throwable.x, throwable.y, throwable.width, throwable.height, throwable);
                 throwable.img.src = throwable.src;
-                throwable.img.onload = () => {
-                    this.ctx.drawImage(
-                        throwable.img, 
-                        throwable.x, 
-                        throwable.y, 
-                        throwable.width, 
-                        throwable.height
-                    );
-                }
+                this.ctx.drawImage(
+                    throwable.img, 
+                    throwable.x, 
+                    throwable.y, 
+                    throwable.width, 
+                    throwable.height
+                );
+                // throwable.img.onload = () => {
+                //     this.ctx.drawImage(
+                //         throwable.img, 
+                //         throwable.x, 
+                //         throwable.y, 
+                //         throwable.width, 
+                //         throwable.height
+                //     );
+                // }
 
                 if (throwable.hasCollided(this.enemy, true)) {
                     this.enemy.health -= throwable.damage;
@@ -129,29 +143,42 @@ class Gameboard {
     }
 
     drawBackground() {
-        this.backgroundImg.onload = () => {
-            this.ctx.drawImage(
-                this.backgroundImg,
-                this.x,
-                this.y,
-                this.width,
-                this.height
-                );
-        };
+        // this.backgroundImg.onload = () => {
+        //     this.ctx.drawImage(
+        //         this.backgroundImg,
+        //         this.x,
+        //         this.y,
+        //         this.width,
+        //         this.height
+        //         );
+        // };
         this.backgroundImg.src = './images/sky.jpg';
+        this.ctx.drawImage(
+            this.backgroundImg,
+            this.x,
+            this.y,
+            this.width,
+            this.height
+            );
     }
 
     drawWarrior(x, y, width, height) {
     
-        this.warrior.characterImg.onload = () => {
-            this.ctx.drawImage(
-                this.warrior.characterImg, 
-                x, 
-                y, 
-                width, 
-                height);
-            };
+        // this.warrior.characterImg.onload = () => {
+        //     this.ctx.drawImage(
+        //         this.warrior.characterImg, 
+        //         x, 
+        //         y, 
+        //         width, 
+        //         height);
+        //     };
         this.warrior.characterImg.src = this.warrior.src;
+        this.ctx.drawImage(
+            this.warrior.characterImg, 
+            x, 
+            y, 
+            width, 
+            height);
 
         // this.ctx.beginPath();
         // this.ctx.moveTo(this.warrior.x, this.warrior.y);
@@ -165,15 +192,21 @@ class Gameboard {
 
     drawEnemy(x, y, width, height) {
 
-        this.enemy.characterImg.onload = () => {
-            this.ctx.drawImage(
-                this.enemy.characterImg, 
-                x, 
-                y, 
-                width, 
-                height);
-            };
+        // this.enemy.characterImg.onload = () => {
+        //     this.ctx.drawImage(
+        //         this.enemy.characterImg, 
+        //         x, 
+        //         y, 
+        //         width, 
+        //         height);
+        //     };
         this.enemy.characterImg.src = this.enemy.src;
+        this.ctx.drawImage(
+            this.enemy.characterImg, 
+            x, 
+            y, 
+            width, 
+            height);
     }
 
     // drawThrowable(x, y, width, height, throwable) {
@@ -192,30 +225,46 @@ class Gameboard {
     drawExplosion(throwable, y, src) {
         let attack = throwable;
         let explosion = new Image();
-        explosion.onload = () => {
-            this.ctx.drawImage(
-                explosion, 
-                attack.x, 
-                y, 
-                50, 
-                50
-            );
-        };
         explosion.src = src;
+        this.ctx.drawImage(
+            explosion, 
+            attack.x, 
+            y, 
+            50, 
+            50
+        );
+        // explosion.onload = () => {
+        //     this.ctx.drawImage(
+        //         explosion, 
+        //         attack.x, 
+        //         y, 
+        //         50, 
+        //         50
+        //     );
+        // };
+        
     }
 
     drawDeath(x, y, width, height, src) {
         let img = new Image();
         img.src = src;
-        img.onload = () => {
-            this.ctx.drawImage(
-                img,
-                x,
-                y,
-                width,
-                height
-            );
-        }
+        this.ctx.drawImage(
+            img,
+            x,
+            y,
+            width,
+            height
+        );
+        
+        // img.onload = () => {
+        //     this.ctx.drawImage(
+        //         img,
+        //         x,
+        //         y,
+        //         width,
+        //         height
+        //     );
+        // };
     } //valid for warrior and for enemy
 
 }
