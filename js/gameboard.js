@@ -80,6 +80,7 @@ class Gameboard {
             for (let i=0; i<this.warrior.attacks.length; i++) {
                 let throwable = this.warrior.attacks[i];
                 throwable.move(false);
+                this.playWarriorShoot();
                 throwable.img.src = throwable.src;
                 this.ctx.drawImage(
                     throwable.img, 
@@ -199,12 +200,13 @@ class Gameboard {
     }
 
     playWarriorShoot(){
-        let sound = loadSound('/sounds/shoot_cthulhu.mp3');
+        let sound = new Audio('./sound-effects/shoot_thor.mp3');
         sound.play();
     }
 
     playEnemyShoot(){
-
+        let sound = new Audio('./sound-effects/shoot_cthulhu.mp3');
+        sound.play();
     }
 
     playExplosionSound(){
