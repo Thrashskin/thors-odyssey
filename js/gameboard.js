@@ -26,7 +26,7 @@ class Gameboard {
         this.ctx = canvas.getContext('2d');
         this.warriorHealthBar = document.getElementById('health-warrior');
         this.enemyHealthBar = document.getElementById('health-enemy');
-        this.warrior = new Warrior(this, 300, 525, 50, 75, './images/thor.png', 5000, 15);
+        this.warrior = new Warrior(this, 300, 525, 50, 75, 'images/thor.png', 5000, 15);
         this.enemy = new Enemy(this, 0, 10, 100, 125, 'images/cthulhu.png', 7000, 5);
         this.x = 0;
         this.y = 0;
@@ -67,7 +67,7 @@ class Gameboard {
 
                 if (throwable.hasCollided(this.warrior, false)) {
                     this.warrior.health -= throwable.damage;
-                    this.drawExplosion(throwable, this.warrior.y, 'images/explosion_2.png');
+                    this.drawExplosion(throwable, this.warrior.y, '/images/explosion_2.png');
                     this.enemy.attacks.splice(i, 1);
                     this.warriorHealthBar.value = this.warrior.health;
                     console.log(this.warrior.health);
