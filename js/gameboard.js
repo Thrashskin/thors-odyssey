@@ -75,7 +75,7 @@ class Gameboard {
                     this.drawDeath(this.warrior.x-20, this.warrior.y, this.warrior.width, this.warrior.height,'images/tombstone.png');
                     clearInterval(this.interval);
                 }
-
+                
             }
 
             for (let i=0; i<this.warrior.attacks.length; i++) {
