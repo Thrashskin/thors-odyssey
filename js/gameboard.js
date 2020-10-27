@@ -73,8 +73,8 @@ class Gameboard {
                     console.log(this.warrior.health);
                 }
 
-                if (throwable.y > 800) {
-                    this.drawExplosion(throwable, 750, 'images/explosion_2.png');
+                if (throwable.y > 600) {
+                    this.drawExplosion(throwable, 550, '/images/explosion_2.png');
                     this.enemy.attacks.splice(i, 1);
                 }
 
