@@ -104,7 +104,6 @@ class Gameboard {
                 if (throwable.hasCollided(this.enemy, true)) {
                     this.enemy.health -= throwable.damage;
                     this.warrior.attacks.splice(i, 1);
-                    console.log(this.enemy.health);
                     this.enemyHealthBar.value = this.enemy.health;
                     this.drawExplosion(throwable, throwable.y, 'images/explosion_2.png');
                 }
