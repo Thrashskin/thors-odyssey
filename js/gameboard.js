@@ -64,6 +64,7 @@ class Gameboard {
                 }
 
                 if (throwable.y > 590) {
+                    this.playExplosionSound();
                     this.drawExplosion(throwable, 550, 'images/explosion_2.png');
                     this.enemy.attacks.splice(i, 1);
                 }
@@ -94,6 +95,7 @@ class Gameboard {
                     this.enemy.health -= throwable.damage;
                     this.warrior.attacks.splice(i, 1);
                     this.enemyHealthBar.value = this.enemy.health;
+                    this.playExplosionSound();
                     this.drawExplosion(throwable, throwable.y, 'images/explosion_2.png');
                 }
                 
@@ -210,7 +212,8 @@ class Gameboard {
     }
 
     playExplosionSound(){
-
+        let sound = new Audio('./sound-effects/explosion.mp3');
+        sound.play();
     }
 
 }
