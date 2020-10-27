@@ -67,13 +67,13 @@ class Gameboard {
 
                 if (throwable.hasCollided(this.warrior, false)) {
                     this.warrior.health -= throwable.damage;
-                    this.drawExplosion(throwable, this.warrior.y, '/images/explosion_2.png');
+                    this.drawExplosion(throwable, this.warrior.y, 'images/explosion_2.png');
                     this.enemy.attacks.splice(i, 1);
                     this.warriorHealthBar.value = this.warrior.health;
                 }
 
                 if (throwable.y > 600) {
-                    this.drawExplosion(throwable, 550, '/images/explosion_2.png');
+                    this.drawExplosion(throwable, 550, 'images/explosion_2.png');
                     this.enemy.attacks.splice(i, 1);
                 }
 
