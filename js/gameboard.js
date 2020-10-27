@@ -199,7 +199,7 @@ class Gameboard {
     }
 
     playWarriorShoot(){
-        let sound = new Audio('./sounds/shoot_thor.mp3');
+        let sound = loadSound('/sounds/shoot_cthulhu.mp3');
         sound.play();
     }
 
