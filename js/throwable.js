@@ -33,19 +33,6 @@ class Throwable {
                 return true;
             }
 
-
-            // if (front) {
-            //     // console.log('front:', this);
-            //     // console.log('warrior:', character);
-            // } else if (left) {
-            //     // console.log('left: ', this);
-            //     // console.log('warrior:', character);
-            // } else if (right) {
-            //     console.log('right: ', this);
-            //     console.log('warrior:', character);
-            // }
-
-
         } else { //attack from enemy to warrior
             front = (((this.y + this.height) > character.y) && ((this.y + this.height) < (character.y + this.pace+10))) &&  (((this.x + this.width) > character.x ) && (this.x + this.width < (character.x + character.width)));
             left = ((this.y + this.height) > character.y) && ((this.y + this.height) < (character.y + character.height)) && ((this.x + this.width) >= character.x) && ((this.x + this.width) <= character.x + (character.width/2));
